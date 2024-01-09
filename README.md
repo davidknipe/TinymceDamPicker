@@ -1,4 +1,4 @@
-# Visitor Groups for Optimizely Data Platform
+# Optimizely DAM picker button for TinyMCE for Optimizely CMS 12
 
 Optimizely DAM picker button for TinyMCE for Optimizely CMS 12
 
