@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinymceDamPicker", "TinymceDamPicker\TinymceDamPicker.csproj", "{5918D4F1-4649-4148-A21D-18B5CF349814}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{0FFC63BF-8BA4-4A30-805F-6B415259522A}"
+	ProjectSection(SolutionItems) = preProject
+		Package\DependencyVersions.props = Package\DependencyVersions.props
+		Package\nuget.exe = Package\nuget.exe
+		Package\nuspec.props = Package\nuspec.props
+		Package\pack.cmd = Package\pack.cmd
+		Package\Package\TinymceDamPicker.nuspec = Package\Package\TinymceDamPicker.nuspec
+		Package\version.props = Package\version.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5918D4F1-4649-4148-A21D-18B5CF349814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5918D4F1-4649-4148-A21D-18B5CF349814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5918D4F1-4649-4148-A21D-18B5CF349814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5918D4F1-4649-4148-A21D-18B5CF349814}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14FDD88D-6D5C-4695-9805-9883C5476E63}
+	EndGlobalSection
+EndGlobal

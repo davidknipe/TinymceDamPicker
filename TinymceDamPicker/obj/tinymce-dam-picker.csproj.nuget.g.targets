@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.sourcelink.common\1.0.0\build\Microsoft.SourceLink.Common.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.sourcelink.common\1.0.0\build\Microsoft.SourceLink.Common.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.build.tasks.git\1.0.0\build\Microsoft.Build.Tasks.Git.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.build.tasks.git\1.0.0\build\Microsoft.Build.Tasks.Git.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.sourcelink.github\1.0.0\build\Microsoft.SourceLink.GitHub.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.sourcelink.github\1.0.0\build\Microsoft.SourceLink.GitHub.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.5\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\6.0.5\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+    <Import Project="$(NuGetPackageRoot)episerver.cms.ui.settings\12.4.0\build\net6.0\EPiServer.Cms.UI.Settings.targets" Condition="Exists('$(NuGetPackageRoot)episerver.cms.ui.settings\12.4.0\build\net6.0\EPiServer.Cms.UI.Settings.targets')" />
+    <Import Project="$(NuGetPackageRoot)episerver.cms.ui.admin\12.4.0\build\net6.0\EPiServer.Cms.UI.Admin.targets" Condition="Exists('$(NuGetPackageRoot)episerver.cms.ui.admin\12.4.0\build\net6.0\EPiServer.Cms.UI.Admin.targets')" />
+    <Import Project="$(NuGetPackageRoot)episerver.cms.ui\12.4.0\build\net6.0\EPiServer.Cms.UI.targets" Condition="Exists('$(NuGetPackageRoot)episerver.cms.ui\12.4.0\build\net6.0\EPiServer.Cms.UI.targets')" />
+    <Import Project="$(NuGetPackageRoot)episerver.cms.tinymce\3.2.0\build\net6.0\Episerver.Cms.TinyMce.targets" Condition="Exists('$(NuGetPackageRoot)episerver.cms.tinymce\3.2.0\build\net6.0\Episerver.Cms.TinyMce.targets')" />
+  </ImportGroup>
+</Project>
