@@ -2,3 +2,5 @@
 ## EPiServer Files
 ######################
 *License.config
+*.vs
+*.log
