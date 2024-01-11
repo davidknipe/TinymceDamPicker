@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using EPiServer.Cms.TinyMce.Core;
 using EPiServer.Shell;
@@ -28,7 +29,7 @@ namespace TinymceDamPicker
     public static class ServiceCollectionExtensions
     {
         private const string PluginName = "tinymcedampicker";
-
+        
         public static IServiceCollection AddDamSelectButton(this IServiceCollection services)
         {
             if (services == null)
@@ -36,9 +37,9 @@ namespace TinymceDamPicker
 
             services.Configure<ProtectedModuleOptions>(pmo =>
             {
-                if (!pmo.Items.Any(x => x.Name.Equals("TinymceDamPicker")))
+                if (!pmo.Items.Any(x => x.Name.Equals(ModuleHelper.Modulename)))
                 {
-                    pmo.Items.Add(new ModuleDetails { Name = "TinymceDamPicker" });
+                    pmo.Items.Add(new ModuleDetails { Name = ModuleHelper.Modulename });
                 }
             });
 

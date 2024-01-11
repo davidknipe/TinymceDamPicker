@@ -124,7 +124,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     editor.ui.registry.addIcon('library-icon', '<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.84 15.84"><path fill="#444" d="M3.48,13.06a.64.64,0,0,1-.64-.64v-9a.64.64,0,1,1,1.27,0v9A.64.64,0,0,1,3.48,13.06Z"></path><path fill="#444" d="M6.65,13.06A.64.64,0,0,1,6,12.42v-9a.64.64,0,1,1,1.27,0v9A.64.64,0,0,1,6.65,13.06Z"></path><path fill="#444" d="M12.36,12.79a.64.64,0,0,1-.6-.42L8.69,3.91a.64.64,0,0,1,1.2-.44L13,11.93a.64.64,0,0,1-.38.82A.54.54,0,0,1,12.36,12.79Z"></path></svg>');
 
     editor.ui.registry.addButton('tinymcedampicker', {
-        text: '',
+        text: 'DAM',
         icon: 'library-icon',
         tooltip: tooltipPlaceholder,
         onAction: function () {

@@ -4,3 +4,10 @@
 *License.config
 *.vs
 *.log
+TinymceDamPicker/bin/
+TinymceDamPicker/obj/
+
+Package/Package/docs
+Package/Package/contentFiles
+Package/Package/lib
+
