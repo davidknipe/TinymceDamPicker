@@ -6,6 +6,8 @@ Optimizely DAM picker button for TinyMCE for Optimizely CMS 12
 
 Adds a button to the TinyMCE toolbar to select images from the Optimizely DAM
 
+![Visual Compare mode for Optimizely CMS](/docs/tinymce-dam-picker-button.png?raw=true)
+
 ----
 
 ## Installation
