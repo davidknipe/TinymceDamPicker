@@ -6,12 +6,11 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "TinymceDamPicker/1.0.0": {
+      "TinymceDamPicker/0.0.9": {
         "dependencies": {
           "EPiServer.CMS.TinyMce": "3.2.0",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.5",
-          "Microsoft.SourceLink.GitHub": "1.0.0",
-          "WeCantSpell.Hunspell": "4.0.0"
+          "Microsoft.SourceLink.GitHub": "1.0.0"
         },
         "runtime": {
           "TinymceDamPicker.dll": {}
@@ -1653,19 +1652,11 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
-      },
-      "WeCantSpell.Hunspell/4.0.0": {
-        "runtime": {
-          "lib/net6.0/WeCantSpell.Hunspell.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.0.0"
-          }
-        }
       }
     }
   },
   "libraries": {
-    "TinymceDamPicker/1.0.0": {
+    "TinymceDamPicker/0.0.9": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2789,13 +2780,6 @@
       "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
-    },
-    "WeCantSpell.Hunspell/4.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-E4A73NTAk25LSmxage9AdT4EE+4KSGFCpjGog2nucPjA+pcgdXmktQjIp+t8dQWExh2eHJbzNJYDt/A0A1Dwbw==",
-      "path": "wecantspell.hunspell/4.0.0",
-      "hashPath": "wecantspell.hunspell.4.0.0.nupkg.sha512"
     }
   }
 }

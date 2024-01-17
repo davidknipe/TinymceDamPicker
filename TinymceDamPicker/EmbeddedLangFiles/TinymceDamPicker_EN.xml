@@ -1,19 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <languages>
-    <language name="English" id="en">
-        <tinymcespellchecker>
-            <title>TinymceDamPicker</title>
-            
-            <gadget>
-                <title>TinymceDamPicker</title>
-            </gadget>
+  <language name="English" id="en">
+    <tinymcedampicker>
+      <title>TinymceDamPicker</title>
 
-            <client>
-            </client>
+      <gadget>
+        <title>TinymceDamPicker</title>
+      </gadget>
 
-            <plugin>
-            </plugin>
-            
-        </tinymcespellchecker>
-    </language>
+      <client>
+      </client>
+
+      <plugin>
+      </plugin>
+
+    </tinymcedampicker>
+  </language>
 </languages>

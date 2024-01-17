@@ -1,7 +1,7 @@
 using System.Reflection;
 
-[assembly: AssemblyCompany("EPiServer")]
-[assembly: AssemblyCopyright("Copyright © EPiServer 2013 - All Rights Reserved")]
+[assembly: AssemblyCompany("David Knipe")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 
 // Version information for an assembly consists of the following four values:
@@ -15,6 +15,5 @@ using System.Reflection;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-// NOTE: remember to update version number in EPiServer.TinyMCESpellChecker.nuspec and version number as clientResourceRelativePath in module.config
-[assembly: AssemblyVersion("3.0.2")]
-[assembly: AssemblyFileVersion("3.0.2")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>TinymceDamPicker</id>
+        <version>$version$</version>
+        <title>DAM picker button for TinyMCE</title>
+        <authors>David Knipe</authors>
+        <owners>David Knipe</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>
+            Enables editors to pick images from the Optimizely DAM in in the TinyMCE rich-text editor
+        </description>
+        <icon>dam-select-icon.png</icon>
+        <repository type="git" url="https://github.com/davidknipe/TinymceDamPicker.git"></repository>
+        <releaseNotes>
+            Initial release, compatible with CMS 12 and EPiServer.CMS.TinyMce 3.x.
+        </releaseNotes>
+        <tags>EPiServerModulePackage EPiServerAddOn TinyMCE DAM</tags>
+        <dependencies>
+             <group targetFramework="net6.0">
+                <dependency id="EPiServer.CMS.TinyMce" version="[$tinyVersion$,$tinyNextMajorVersion$)" />
+                <dependency id="Microsoft.Extensions.FileProviders.Embedded" version="[6.0.5,)" />
+            </group>
+        </dependencies>
+         <contentFiles>
+            <files include="any/any/modules/_protected/TinymceDamPicker/TinymceDamPicker.zip" buildAction="None" copyToOutput="true"  />
+        </contentFiles>
+    </metadata>
+    <files>
+		<file src="TinymceDamPicker\TinymceDamPicker\bin\$configuration$\net6.0\TinymceDamPicker.dll" target="lib\net6.0\" />
+		<file src="TinymceDamPicker\TinymceDamPicker\bin\$configuration$\net6.0\TinymceDamPicker.pdb" target="lib\net6.0\" />
+        <file src="TinymceDamPicker\zipoutput\TinymceDamPicker.zip" target="contentFiles\any\any\modules\_protected\TinymceDamPicker" />
+        <file src="TinymceDamPicker\MSBuild\CopyZipFiles.targets" target="build\net6.0\TinymceDamPicker.targets" />
+        <file src="TinymceDamPicker\MSBuild\dam-select-icon.png" />
+    </files>
+</package>

@@ -9122,7 +9122,7 @@
     "C:\\Users\\david\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "0.4.20",
+    "version": "1.0.0",
     "restore": {
       "projectUniqueName": "F:\\_GitHub\\TinymceDamPicker\\TinymceDamPicker\\TinymceDamPicker.csproj",
       "projectName": "TinymceDamPicker",
@@ -9188,7 +9188,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.418\\RuntimeIdentifierGraph.json"
       }
     }
   }

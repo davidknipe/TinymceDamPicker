@@ -1,0 +1,19 @@
+<Project>
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<NuspecBasePath>$(ProjectDir)..\..\</NuspecBasePath>
+		<PackageVersion Condition=" '$(PackageVersion)' == '' ">$(VersionPrefix)$(VersionSuffix)</PackageVersion>
+		<NuspecProperties>Configuration=$(Configuration);Version=$(PackageVersion)</NuspecProperties>
+		<PackageOutputPath>$(SolutionDir)artifacts\packages\</PackageOutputPath>
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);</TargetsForTfmSpecificContentInPackage>
+	</PropertyGroup>
+
+	<Target Name="Cleanup" AfterTargets="GenerateNuspec">
+		<Delete Files="license.txt"/>
+	</Target>
+
+	<!-- Setup SourceLink -->
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all"/>
+	</ItemGroup>
+</Project>

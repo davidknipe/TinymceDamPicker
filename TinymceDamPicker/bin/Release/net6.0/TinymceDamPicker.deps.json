@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "TinymceDamPicker/0.4.19": {
+      "TinymceDamPicker/1.0.0": {
         "dependencies": {
           "EPiServer.CMS.TinyMce": "3.2.0",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.5",
@@ -1656,7 +1656,7 @@
     }
   },
   "libraries": {
-    "TinymceDamPicker/0.4.19": {
+    "TinymceDamPicker/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -8,28 +8,64 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         dimensions: {
             width: '',
             height: ''
-        }
+        },
+        padding: '',
+        float: ''
     };
 
     var openDialog = function () {
         return editor.windowManager.open({
             title: 'Optimizely DAM Image Selector',
             body: {
-                type: 'panel',
-                items: [
+                type: 'tabpanel',
+                tabs: [
                     {
-                        name: 'src',
-                        type: 'input',
-                        label: 'Source'
+                        name: 'General',
+                        title: 'General',
+                        items: [
+                            {
+                                name: 'src',
+                                type: 'input',
+                                label: 'Source'
+                            },
+                            {
+                                type: 'input',
+                                name: 'alt',
+                                label: 'Alternative desription'
+                            },
+                            {
+                                name: 'dimensions',
+                                type: 'sizeinput'
+                            }
+                        ]
                     },
                     {
-                        type: 'input',
-                        name: 'alt',
-                        label: 'Alternative desription'
-                    },
-                    {
-                        name: 'dimensions',
-                        type: 'sizeinput'
+                        name: 'Advanced',
+                        title: 'Advanced',
+                        items: [
+                            {
+                                type: 'grid',
+                                columns: 2,
+                                items: [
+                                    {
+                                        type: 'input',
+                                        label: 'Padding (pixels)',
+                                        name: 'padding',
+                                        inputMode: 'numeric'
+                                    },
+                                    {
+                                        type: 'listbox',
+                                        name: 'float',
+                                        label: 'Float image',
+                                        items: [
+                                            { text: 'Select...', value: '' },
+                                            { text: 'Left', value: 'left' },
+                                            { text: 'Right', value: 'right' }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -56,7 +92,18 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
             },
             onSubmit: function (api) {
                 var data = api.getData();
-                editor.insertContent('<img width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + data.src + '" alt="' + data.alt + '"></img>');
+                var styleElement = '';
+                var padding = parseInt(data.padding)
+                if (padding) {
+                    styleElement += 'padding: ' + data.padding + 'px; ';
+                }
+                if (data.float !== '') {
+                    styleElement += 'float: ' + data.float + '; ';
+                }
+                if (styleElement !== '') {
+                    styleElement = ' style="' + styleElement + '"'
+                }
+                editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + data.src + '" alt="' + data.alt + '"></img>');
                 delete dialog;
                 api.close();
             }
@@ -90,13 +137,24 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         selectedImageData.alt = '';
         selectedImageData.dimensions.height = '';
         selectedImageData.dimensions.width = '';
+        selectedImageData.float = '';
+        selectedImageData.padding = '';
 
         if (selectedElement && selectedElement.tagName === "IMG" && editor.dom.getAttrib(selectedElement, "class").indexOf("libItem") === -1) {
 
             selectedImageData.src = editor.dom.getAttrib(selectedElement, "src");
             selectedImageData.alt = editor.dom.getAttrib(selectedElement, "alt");
-            selectedImageData.dimensions.height = editor.dom.getAttrib(selectedElement, "width");
-            selectedImageData.dimensions.width = editor.dom.getAttrib(selectedElement, "height");
+            selectedImageData.dimensions.height = editor.dom.getAttrib(selectedElement, "height");
+            selectedImageData.dimensions.width = editor.dom.getAttrib(selectedElement, "width");
+
+            var paddingVal = selectedElement.style.padding;
+            if (paddingVal && paddingVal !== '') {
+                selectedImageData.padding = paddingVal.replace("px", "");
+            }
+            var floatVal = selectedElement.style.float;
+            if (floatVal && floatVal !== '') {
+                selectedImageData.float = floatVal;
+            }
 
             var buttonRef = document.querySelector("button[title='" + tooltipPlaceholder + "'");
             if (buttonRef) {
