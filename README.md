@@ -23,7 +23,7 @@ Install-Package TinymceDamPicker
 
 *Startup.cs*
 ``` c#
-// Adds the registration for visitor groups
+// Adds the DAM selector button
 services.AddDamSelectButton();
 ```
  ---
