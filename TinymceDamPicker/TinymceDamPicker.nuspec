@@ -20,6 +20,7 @@
              <group targetFramework="net6.0">
                 <dependency id="EPiServer.CMS.TinyMce" version="[$tinyVersion$,$tinyNextMajorVersion$)" />
                 <dependency id="Microsoft.Extensions.FileProviders.Embedded" version="[6.0.5,)" />
+                <dependency id="EPiServer.CMS.WelcomeIntegration.UI" version="[1.3.6,)" />
             </group>
         </dependencies>
          <contentFiles>

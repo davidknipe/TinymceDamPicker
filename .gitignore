@@ -219,3 +219,7 @@ $RECYCLE.BIN/
 .idea/
 modules/
 zipoutput/
+
+TinymceDamPicker/bin/*.*
+TinymceDamPicker/obj/*.*
+

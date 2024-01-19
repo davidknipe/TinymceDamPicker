@@ -10,9 +10,7 @@ namespace TinymceDamPicker
     public static class ModuleHelper
     {
         public const string Modulename = "TinymceDamPicker";
-        /// <summary>
-        /// Readonly propery for geting the module path.
-        /// </summary>
+
         public static string MyModulePath => Paths.ToResource(typeof(ModuleHelper), string.Empty);
 
         public static string ToClientResource(string virtualPath)

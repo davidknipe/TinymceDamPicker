@@ -13,6 +13,13 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         float: ''
     };
 
+    var getRequestVerificationToken = function () {
+        const root = document.getElementById("epi-navigation-root");
+        const antiforgeryFormFieldName = root?.dataset.epiAntiforgeryFormFieldName?.toString();
+        const token = document.getElementsByName(antiforgeryFormFieldName);
+        return token[0].value;
+    }
+
     var openDialog = function () {
         return editor.windowManager.open({
             title: 'Optimizely DAM Image Selector',
@@ -103,9 +110,34 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                 if (styleElement !== '') {
                     styleElement = ' style="' + styleElement + '"'
                 }
-                editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + data.src + '" alt="' + data.alt + '"></img>');
-                delete dialog;
-                api.close();
+
+                fetch("../EPiServer.Cms.WelcomeIntegration.UI/Stores/episervercmsdamcontentcreation/", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "externalUrl": data.src,
+                        "title": data.alt,
+                        "assetType": 0
+                    }),
+                    headers: {
+                        "Accept": "application/javascript, application/json",
+                        "Content-type": "application/json",
+                        "Requestverificationtoken": getRequestVerificationToken(),
+                        "X-Epicontentlanguage": "en",
+                        "X-Epicurrentcontentcontext": "0",
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        var url = json.permanentLink.replace("~", "");
+                        editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + url + '" alt="' + data.alt + '"></img>');
+                        delete dialog;
+                        api.close();
+                    });
+
+                //    editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + data.src + '" alt="' + data.alt + '"></img>');
+                //    delete dialog;
+                //    api.close();
             }
         });
     };
