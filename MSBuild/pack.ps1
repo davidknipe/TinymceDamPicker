@@ -9,11 +9,11 @@ $ErrorActionPreference = "Stop"
 $node = $versionFile.SelectSingleNode("Project/PropertyGroup/TinyVersion")
 $tinyVersion = $node.InnerText
 $parts = $tinyVersion.Split(".")
-$major = [int]::Parse($parts[0]) + 1
-$tinyNextMajorVersion = ($major.ToString() + ".0.0") 
+$major = [int]::Parse($parts[0]) + 2
+$tinyNextMajorVersion = ($major.ToString() + ".0.0")
 
 [xml] $versionFile = Get-Content "./MSBuild/version.props"
-$pVersion = $versionFile.SelectSingleNode("Project/PropertyGroup/VersionPrefix").InnerText + $versionSuffix 
+$pVersion = $versionFile.SelectSingleNode("Project/PropertyGroup/VersionPrefix").InnerText + $versionSuffix
 
 Remove-Item -Path ./zipoutput -Recurse -Force -Confirm:$false -ErrorAction Ignore
 
@@ -21,7 +21,7 @@ New-Item -Path "./zipoutput/TinymceDamPicker" -Name "$pVersion" -ItemType "direc
 [xml] $moduleFile = Get-Content "./TinymceDamPicker/module.config"
 $module = $moduleFile.SelectSingleNode("module")
 $module.Attributes["clientResourceRelativePath"].Value = $pVersion
-$moduleFile.Save("../zipoutput/TinymceDamPicker/module.config")
+$moduleFile.Save("./zipoutput/TinymceDamPicker/module.config")
 Copy-Item "./TinymceDamPicker/ClientResources" -Destination "./zipoutput/TinymceDamPicker/$pVersion/clientResources" -Recurse
 Copy-Item "./TinymceDamPicker/EmbeddedLangFiles" -Destination "./zipoutput/TinymceDamPicker/$pVersion/EmbeddedLangFiles" -Recurse
 

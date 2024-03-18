@@ -11,7 +11,8 @@
             Enables editors to pick images from the Optimizely DAM in in the TinyMCE rich-text editor
         </description>
         <icon>dam-select-icon.png</icon>
-        <repository type="git" url="https://github.com/davidknipe/TinymceDamPicker.git"></repository>
+        <repository type="git" url="https://github.com/davidknipe/TinymceDamPicker.git"/>
+        <projectUrl>https://github.com/davidknipe/TinymceDamPicker</projectUrl>
         <releaseNotes>
             Initial release, compatible with CMS 12 and EPiServer.CMS.TinyMce 3.x.
         </releaseNotes>
