@@ -4,7 +4,7 @@
         <id>TinymceDamPicker</id>
         <version>$version$</version>
         <title>DAM picker button for TinyMCE</title>
-        <authors>David Knipe</authors>
+        <authors>David Knipe, Steve Celius</authors>
         <owners>David Knipe</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>
@@ -14,7 +14,7 @@
         <repository type="git" url="https://github.com/davidknipe/TinymceDamPicker.git"/>
         <projectUrl>https://github.com/davidknipe/TinymceDamPicker</projectUrl>
         <releaseNotes>
-            Initial release, compatible with CMS 12 and EPiServer.CMS.TinyMce 3.x.
+            Compatible with CMS 12 and EPiServer.CMS.TinyMce 3.x and 4.x.
         </releaseNotes>
         <tags>EPiServerModulePackage EPiServerAddOn TinyMCE DAM</tags>
         <dependencies>
