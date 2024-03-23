@@ -2,10 +2,10 @@
 <languages>
   <language name="English" id="en">
     <tinymcedampicker>
-      <title>TinymceDamPicker</title>
+      <title>File picker for Optimizely Dam</title>
 
       <gadget>
-        <title>TinymceDamPicker</title>
+        <title>Tinymce Dam Picker</title>
       </gadget>
 
       <client>

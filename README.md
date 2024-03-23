@@ -31,7 +31,8 @@ services.AddDamSelectButton();
  ---
  ## Version History
 
- |Version| Details|
- |:---|:---------------|
- |1.0|Initial Release|
- |1.1|Added support to lineage API|
+ | Version | Details                                    |
+ |:--------|:-------------------------------------------|
+ | 1.2     | Supports EPiServer.CMS.TinyMce 3.x and 4.x |
+ | 1.1     | Added support to lineage API               |
+ | 1.0     | Initial Release                            |
