@@ -3,36 +3,35 @@ param ([string]$versionSuffix = "",
 $ErrorActionPreference = "Stop"
 
 # Set location to the Solution directory
-(Get-Item $PSScriptRoot).Parent.FullName | Push-Location
+$solutionDir = (Get-Item $PSScriptRoot).Parent.FullName
+$buildDir = "$solutionDir/msbuild"
+Write-Host "Creating TinymceDamPicker Package"
 
-[xml] $versionFile = Get-Content "./MSBuild/DependencyVersions.props"
+[xml] $versionFile = Get-Content "$buildDir/DependencyVersions.props"
 $node = $versionFile.SelectSingleNode("Project/PropertyGroup/TinyVersion")
 $tinyVersion = $node.InnerText
 $parts = $tinyVersion.Split(".")
 $major = [int]::Parse($parts[0]) + 2
 $tinyNextMajorVersion = ($major.ToString() + ".0.0")
 
-[xml] $versionFile = Get-Content "./MSBuild/version.props"
+[xml] $versionFile = Get-Content "$buildDir/version.props"
 $pVersion = $versionFile.SelectSingleNode("Project/PropertyGroup/VersionPrefix").InnerText + $versionSuffix
 
-Remove-Item -Path ./zipoutput -Recurse -Force -Confirm:$false -ErrorAction Ignore
+Remove-Item -Path "$solutionDir/zipoutput" -Recurse -Force -Confirm:$false -ErrorAction Ignore
 
-New-Item -Path "./zipoutput/TinymceDamPicker" -Name "$pVersion" -ItemType "directory"
-[xml] $moduleFile = Get-Content "./TinymceDamPicker/module.config"
+New-Item -Path "$solutionDir/zipoutput/TinymceDamPicker" -Name "$pVersion" -ItemType "directory"
+[xml] $moduleFile = Get-Content "$solutionDir/TinymceDamPicker/module.config"
 $module = $moduleFile.SelectSingleNode("module")
 $module.Attributes["clientResourceRelativePath"].Value = $pVersion
-$moduleFile.Save("./zipoutput/TinymceDamPicker/module.config")
-Copy-Item "./TinymceDamPicker/ClientResources" -Destination "./zipoutput/TinymceDamPicker/$pVersion/clientResources" -Recurse
-Copy-Item "./TinymceDamPicker/EmbeddedLangFiles" -Destination "./zipoutput/TinymceDamPicker/$pVersion/EmbeddedLangFiles" -Recurse
+$moduleFile.Save("$solutionDir/zipoutput/TinymceDamPicker/module.config")
+Copy-Item "$solutionDir/TinymceDamPicker/ClientResources" -Destination "$solutionDir/zipoutput/TinymceDamPicker/$pVersion/clientResources" -Recurse
+Copy-Item "$solutionDir/TinymceDamPicker/EmbeddedLangFiles" -Destination "$solutionDir/zipoutput/TinymceDamPicker/$pVersion/EmbeddedLangFiles" -Recurse
 
 $compress = @{
-  Path = "./zipoutput/TinymceDamPicker/*"
+  Path = "$solutionDir/zipoutput/TinymceDamPicker/*"
   CompressionLevel = "Optimal"
-  DestinationPath = "./zipoutput/TinymceDamPicker.zip"
+  DestinationPath = "$solutionDir/zipoutput/TinymceDamPicker.zip"
 }
 Compress-Archive @compress
 
-dotnet pack --no-restore --no-build -c $configuration /p:PackageVersion=$pVersion /p:TinyVersion=$tinyVersion /p:TinyNextMajorVersion=$tinyNextMajorVersion TinymceDamPicker.sln
-
-Pop-Location
-
+dotnet pack --no-restore -c $configuration /p:PackageVersion=$pVersion /p:TinyVersion=$tinyVersion /p:TinyNextMajorVersion=$tinyNextMajorVersion "$solutionDir/TinymceDamPicker.sln"
