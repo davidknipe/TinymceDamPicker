@@ -111,6 +111,12 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                     styleElement = ' style="' + styleElement + '"'
                 }
 
+                if (data.src.indexOf("/") == 0) {
+                    api.close();
+                    delete dialog;
+                    return
+                }
+
                 fetch("../EPiServer.Cms.WelcomeIntegration.UI/Stores/episervercmsdamcontentcreation/", {
                     method: "POST",
                     body: JSON.stringify({
@@ -134,10 +140,6 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                         delete dialog;
                         api.close();
                     });
-
-                //    editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + data.src + '" alt="' + data.alt + '"></img>');
-                //    delete dialog;
-                //    api.close();
             }
         });
     };
@@ -145,6 +147,9 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     const handleChoose = (event) => {
         const imageData = event.data[0];
         if (imageData) {
+            if (!dialog) {
+                dialog = openDialog();
+            }
             var altText = event.data[0].title;
             if (event.data[0].alt && event.data[0].alt != '') {
                 altText = event.data[0].alt;
@@ -219,10 +224,12 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         tooltip: tooltipPlaceholder,
         onAction: function () {
             editor.fire("blur");
-            dialog = openDialog();
-            dialog.setData(selectedImageData);
             if (selectedImageData.src == '') {
                 openWindow();
+            }
+            else {
+                dialog = openDialog();
+                dialog.setData(selectedImageData);
             }
         },
         onSetup: function (buttonApi) {
