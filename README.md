@@ -31,11 +31,14 @@ services.AddDamSelectButton();
  ---
  ## Version History
 
- | Version | Details                                                           |
- |:--------|:------------------------------------------------------------------|
- | 1.2.1   | Bug fixes:                                                        |
- |         | - Insert image may fail if CMS UI hasn't finished updating        |
- |         | - Clicking the insert button when editing an existing image fails |
- | 1.2     | Supports EPiServer.CMS.TinyMce 3.x and 4.x                        |
- | 1.1     | Added support to lineage API                                      |
- | 1.0     | Initial Release                                                   |
+ | Version | Details                                                               |
+ |:--------|:----------------------------------------------------------------------|
+ | 1.2.3   | Bug fix: Resolve issue where multiple images cannot be inserted       | 
+ |         | without a UI refresh                                                 |
+ | 1.2.2   | Bug fix: Resolve issue where relative CMS UI path may not be resolved |
+ | 1.2.1   | Bug fixes:                                                            |
+ |         | - Insert image may fail if CMS UI hasn't finished updating            |
+ |         | - Clicking the insert button when editing an existing image fails     |
+ | 1.2     | Supports EPiServer.CMS.TinyMce 3.x and 4.x                            |
+ | 1.1     | Added support to lineage API                                          |
+ | 1.0     | Initial Release                                                       |

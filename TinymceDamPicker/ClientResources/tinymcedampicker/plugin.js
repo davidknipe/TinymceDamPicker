@@ -2,6 +2,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
 
     var tooltipPlaceholder = "Optimizely DAM selector";
     var dialog;
+    var dialogOpen = false;
     var selectedImageData = {
         src: '',
         alt: '',
@@ -13,6 +14,17 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         float: ''
     };
 
+    var getUiUrl = function () {
+        var uiBaseUrl = window.location.protocol;
+        uiBaseUrl += "//";
+        uiBaseUrl += window.location.host;
+        uiBaseUrl += "/";
+        var uiSegment = window.location.pathname.split("/")[1];
+        uiBaseUrl += uiSegment;
+
+        return uiBaseUrl;
+    }
+
     var getRequestVerificationToken = function () {
         const root = document.getElementById("epi-navigation-root");
         const antiforgeryFormFieldName = root?.dataset.epiAntiforgeryFormFieldName?.toString();
@@ -21,6 +33,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     }
 
     var openDialog = function () {
+        dialogOpen = true;
         return editor.windowManager.open({
             title: 'Optimizely DAM Image Selector',
             body: {
@@ -114,10 +127,12 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                 if (data.src.indexOf("/") == 0) {
                     api.close();
                     delete dialog;
-                    return
+                    dialogOpen = false;
+                    return;
                 }
 
-                fetch("../EPiServer.Cms.WelcomeIntegration.UI/Stores/episervercmsdamcontentcreation/", {
+                var urlTarget = getUiUrl() + "/EPiServer.Cms.WelcomeIntegration.UI/Stores/episervercmsdamcontentcreation/";
+                fetch(urlTarget, {
                     method: "POST",
                     body: JSON.stringify({
                         "externalUrl": data.src,
@@ -137,8 +152,9 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                     .then((json) => {
                         var url = json.permanentLink.replace("~", "");
                         editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + url + '" alt="' + data.alt + '"></img>');
-                        delete dialog;
                         api.close();
+                        delete dialog;
+                        dialogOpen = false;
                     });
             }
         });
@@ -147,7 +163,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     const handleChoose = (event) => {
         const imageData = event.data[0];
         if (imageData) {
-            if (!dialog) {
+            if (dialogOpen == false) {
                 dialog = openDialog();
             }
             var altText = event.data[0].title;
