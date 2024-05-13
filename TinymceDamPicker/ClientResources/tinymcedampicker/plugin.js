@@ -125,9 +125,18 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                 }
 
                 if (data.src.indexOf("/") == 0) {
+                    // Updating content that already had an internal reference
                     api.close();
                     delete dialog;
                     dialogOpen = false;
+
+                    var imgHtml = '<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + data.src + '" alt="' + data.alt + '"></img>';
+                    editor.insertContent(imgHtml);
+                    editor.focus();
+                    setTimeout(() => {
+                        editor.fire("change");
+                    }, 100);
+
                     return;
                 }
 
@@ -151,10 +160,15 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                     .then((response) => response.json())
                     .then((json) => {
                         var url = json.permanentLink.replace("~", "");
-                        editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + url + '" alt="' + data.alt + '"></img>');
                         api.close();
                         delete dialog;
                         dialogOpen = false;
+
+                        editor.insertContent('<img ' + styleElement + ' width="' + data.dimensions.width + '" height="' + data.dimensions.height + '" src="' + url + '" alt="' + data.alt + '"></img>');
+                        editor.focus();
+                        setTimeout(() => {
+                            editor.fire("change");
+                        }, 100);
                     });
             }
         });
@@ -239,7 +253,6 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         icon: 'library-icon',
         tooltip: tooltipPlaceholder,
         onAction: function () {
-            editor.fire("blur");
             if (selectedImageData.src == '') {
                 openWindow();
             }

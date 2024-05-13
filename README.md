@@ -33,8 +33,9 @@ services.AddDamSelectButton();
 
  | Version | Details                                                               |
  |:--------|:----------------------------------------------------------------------|
+ | 1.2.4   | Bug fix: Ensure auto-save works when in forms view                    | 
  | 1.2.3   | Bug fix: Resolve issue where multiple images cannot be inserted       | 
- |         | without a UI refresh                                                 |
+ |         | without a UI refresh                                                  |
  | 1.2.2   | Bug fix: Resolve issue where relative CMS UI path may not be resolved |
  | 1.2.1   | Bug fixes:                                                            |
  |         | - Insert image may fail if CMS UI hasn't finished updating            |
