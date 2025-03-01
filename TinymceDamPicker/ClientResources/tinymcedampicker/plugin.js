@@ -177,9 +177,8 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     const handleChoose = (event) => {
         const imageData = event.data[0];
         if (imageData) {
-            if (dialogOpen == false) {
-                dialog = openDialog();
-            }
+             dialog = openDialog();
+             dialogOpen = true;
             var altText = event.data[0].title;
             if (event.data[0].alt && event.data[0].alt != '') {
                 altText = event.data[0].alt;
@@ -239,7 +238,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
     const openWindow = () => {
         const options = {
             assetTypes: ['image'],
-            multiSelect: true
+            multiSelect: false
         };
         const encodedOptions = window.btoa(JSON.stringify(options));
         window.open(`https://cmp.optimizely.com/cloud/library-picker?pickerOptions=${encodedOptions}`, 'Library', 'popup');
