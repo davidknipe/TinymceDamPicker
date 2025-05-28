@@ -33,6 +33,7 @@ services.AddDamSelectButton();
 
  | Version | Details                                                                        |
  |:--------|:-------------------------------------------------------------------------------|
+ | 1.3.0   | Refactor to allow for easier TinyMCE dependency version updates                |
  | 1.2.6   | Adding support for EPiServer.CMS.TinyMce 5.0                                   | 
  | 1.2.5   | Bug fix: Prevent multi-select. Thanks for the contribution AnnamalaiEswaran-A! | 
  | 1.2.4   | Bug fix: Ensure auto-save works when in forms view                             | 
