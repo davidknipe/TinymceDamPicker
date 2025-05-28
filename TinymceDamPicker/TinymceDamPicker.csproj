@@ -9,8 +9,8 @@
     <NuspecFile>TinymceDamPicker.nuspec</NuspecFile>
     <IsPackable>true</IsPackable>
     <PackageOutputPath>$(SolutionDir)artifacts\packages\</PackageOutputPath>
-    <NuspecProperties>Configuration=$(Configuration);version=$(PackageVersion);tinyVersion=$(TinyVersion);tinyNextMajorVersion=$(TinyNextMajorVersion)</NuspecProperties>
-      <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <NuspecProperties>Configuration=$(Configuration);version=$(PackageVersion);tinyVersion=$(TinyMinVersion);tinyNextMajorVersion=$(TinyMaxVersion)</NuspecProperties>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
   </PropertyGroup>
  
   <ItemGroup>
@@ -18,7 +18,7 @@
       <EmbeddedResource Include="ClientResources\**\*.*" />
   </ItemGroup>
 	<ItemGroup>
-        <PackageReference Include="EPiServer.CMS.TinyMce" Version="$(TinyVersion)" />
+        <PackageReference Include="EPiServer.CMS.TinyMce" Version="[$(TinyMinVersion),$(TinyMaxVersion)]" />
         <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.5" />
   </ItemGroup>
 </Project>

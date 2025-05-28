@@ -8,11 +8,10 @@ $buildDir = "$solutionDir/msbuild"
 Write-Host "Creating TinymceDamPicker Package"
 
 [xml] $versionFile = Get-Content "$buildDir/DependencyVersions.props"
-$node = $versionFile.SelectSingleNode("Project/PropertyGroup/TinyVersion")
-$tinyVersion = $node.InnerText
-$parts = $tinyVersion.Split(".")
-$major = [int]::Parse($parts[0]) + 2
-$tinyNextMajorVersion = ($major.ToString() + ".0.0")
+$minNode = $versionFile.SelectSingleNode("Project/PropertyGroup/TinyMinVersion")
+$tinyVersion = $minNode.InnerText
+$maxNode = $versionFile.SelectSingleNode("Project/PropertyGroup/TinyMaxVersion")
+$tinyNextMajorVersion = $maxNode.InnerText
 
 [xml] $versionFile = Get-Content "$buildDir/version.props"
 $pVersion = $versionFile.SelectSingleNode("Project/PropertyGroup/VersionPrefix").InnerText + $versionSuffix
