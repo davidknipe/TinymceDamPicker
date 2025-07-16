@@ -32,6 +32,11 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
         return token[0].value;
     }
 
+    var getRequestVerificationTokenHeaderName = function () {
+        const root = document.getElementById("epi-navigation-root");
+        return root?.dataset.epiAntiforgeryHeaderName?.toString() ?? "Requestverificationtoken";
+    }
+
     var openDialog = function () {
         dialogOpen = true;
         return editor.windowManager.open({
@@ -151,7 +156,7 @@ tinyMCE.PluginManager.add("tinymcedampicker", (editor, url) => {
                     headers: {
                         "Accept": "application/javascript, application/json",
                         "Content-type": "application/json",
-                        "Requestverificationtoken": getRequestVerificationToken(),
+                        [getRequestVerificationTokenHeaderName()]: getRequestVerificationToken(),
                         "X-Epicontentlanguage": "en",
                         "X-Epicurrentcontentcontext": "0",
                         "X-Requested-With": "XMLHttpRequest"
