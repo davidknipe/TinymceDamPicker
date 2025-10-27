@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
     <TinyMinVersion>3.2.0</TinyMinVersion>
-    <TinyMaxVersion>5.0.1</TinyMaxVersion>
+    <TinyMaxVersion>6</TinyMaxVersion>
   </PropertyGroup>
 </Project>
