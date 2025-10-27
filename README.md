@@ -31,20 +31,21 @@ services.AddDamSelectButton();
  ---
  ## Version History
 
- | Version | Details                                                                        |
- |:--------|:-------------------------------------------------------------------------------|
- | 1.3.1   | Support custom anti-forgery token header name and update TinyMCE depedency     |
- |         | version                                                                        |
- | 1.3.0   | Refactor to allow for easier TinyMCE dependency version updates                |
- | 1.2.6   | Adding support for EPiServer.CMS.TinyMce 5.0                                   | 
- | 1.2.5   | Bug fix: Prevent multi-select. Thanks for the contribution AnnamalaiEswaran-A! | 
- | 1.2.4   | Bug fix: Ensure auto-save works when in forms view                             | 
- | 1.2.3   | Bug fix: Resolve issue where multiple images cannot be inserted                | 
- |         | without a UI refresh                                                           |
- | 1.2.2   | Bug fix: Resolve issue where relative CMS UI path may not be resolved          |
- | 1.2.1   | Bug fixes:                                                                     |
- |         | - Insert image may fail if CMS UI hasn't finished updating                     |
- |         | - Clicking the insert button when editing an existing image fails              |
- | 1.2     | Supports EPiServer.CMS.TinyMce 3.x and 4.x                                     |
- | 1.1     | Added support to lineage API                                                   |
- | 1.0     | Initial Release                                                                |
+ | Version | Details                                                                             |
+ |:--------|:------------------------------------------------------------------------------------|
+ | 1.3.1   | Support custom anti-forgery token header name and update TinyMCE depedency  version |
+ |         | version                                                                             |
+ | 1.3.0   | Refactor to allow for easier TinyMCE dependency version updates                     |
+ | 1.2.6   | Adding support for EPiServer.CMS.TinyMce 5.0                                        | 
+ | 1.2.5   | Bug fix: Prevent multi-select. Thanks for the contribution AnnamalaiEswaran-A!      | 
+ | 1.2.4   | Bug fix: Ensure auto-save works when in forms view                                  | 
+ | 1.2.3   | Bug fix: Resolve issue where multiple images cannot be inserted                     | 
+ |         | without a UI refresh                                                                |
+ | 1.2.2   | Bug fix: Resolve issue where relative CMS UI path may not be resolved               |
+ | 1.2.1   | Bug fixes:                                                                          |
+ |         | - Insert image may fail if CMS UI hasn't finished updating                          |
+ |         | - Clicking the insert button when editing an existing image fails                   |
+ | 1.2     | Supports EPiServer.CMS.TinyMce 3.x and 4.x                                          |
+ | 1.1     | Added support to lineage API                                                        |
+ | 1.0     | Initial Release                                                                     |
+ 
